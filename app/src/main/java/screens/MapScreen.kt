@@ -11,8 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.*import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -184,18 +183,20 @@ fun MapScreen(
                     formatDistance(distanceKm(it.latitude, it.longitude,
                         bank.latitude, bank.longitude))
                 }
-                Marker(
-                    state   = rememberMarkerState(position = position),
-                    title   = bank.name,
-                    snippet = distance ?: bank.address.ifBlank { bank.openingHours },
-                    icon    = BitmapDescriptorFactory.defaultMarker(
-                        BitmapDescriptorFactory.HUE_ORANGE
-                    ),
-                    onClick = {
-                        onFoodBankSelected(bank.id)
-                        true
-                    }
-                )
+                key(bank.id) {
+                    Marker(
+                        state   = rememberMarkerState(position = position),
+                        title   = bank.name,
+                        snippet = distance ?: bank.address.ifBlank { bank.openingHours },
+                        icon    = BitmapDescriptorFactory.defaultMarker(
+                            BitmapDescriptorFactory.HUE_ORANGE
+                        ),
+                        onClick = {
+                            onFoodBankSelected(bank.id)
+                            true
+                        }
+                    )
+                }
             }
 
             // Preview marker for new food bank (admins only)

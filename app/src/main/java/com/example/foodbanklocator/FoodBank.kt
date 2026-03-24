@@ -23,12 +23,6 @@ data class FoodBank(
     val openingHours: String = "",
     val items: List<String> = emptyList()
 ) {
-    /**
-     * Firestore requires a no-argument constructor for deserialization.
-     * The default parameter values above satisfy this automatically in Kotlin.
-     *
-     * toMap() is used when writing to Firestore (add / set operations).
-     */
     fun toMap(): Map<String, Any> = mapOf(
         "name"         to name,
         "latitude"     to latitude,
@@ -40,10 +34,6 @@ data class FoodBank(
     )
 
     companion object {
-        /**
-         * Converts a Firestore document snapshot into a FoodBank object.
-         * Safe: uses get() with defaults so missing fields don't crash the app.
-         */
         fun fromMap(id: String, data: Map<String, Any?>): FoodBank = FoodBank(
             id           = id,
             name         = data["name"]         as? String ?: "",

@@ -73,9 +73,6 @@ fun LandingScreen(
             verticalArrangement = Arrangement.spacedBy(0.dp)
         ) {
 
-            // ------------------------------------------------
-            // Logo Circle
-            // ------------------------------------------------
             Box(
                 modifier = Modifier
                     .size(120.dp)
@@ -93,9 +90,6 @@ fun LandingScreen(
 
             Spacer(Modifier.height(28.dp))
 
-            // ------------------------------------------------
-            // App Name
-            // ------------------------------------------------
             Text(
                 text = "KitchenFresh",
                 style = MaterialTheme.typography.displayLarge,
@@ -144,9 +138,6 @@ fun LandingScreen(
 
             Spacer(Modifier.height(16.dp))
 
-            // ------------------------------------------------
-            // Divider with "or"
-            // ------------------------------------------------
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
@@ -183,9 +174,6 @@ fun LandingScreen(
             }
         }
 
-        // ------------------------------------------------
-        // Bottom credit text
-        // ------------------------------------------------
         Text(
             text = "Helping communities across Kenya",
             style = MaterialTheme.typography.labelSmall,
